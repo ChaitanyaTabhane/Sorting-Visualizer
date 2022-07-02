@@ -13,7 +13,7 @@ This is sorting visualizer website. It helps in understanding the sorting algori
 - Javascript
 
 ## Website hosted on github
-link
+Link :https://chaitanyatabhane.github.io/Sorting-Visualizer/
 
 ## References
 CodeTrain YT

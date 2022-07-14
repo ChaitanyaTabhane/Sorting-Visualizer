@@ -82,7 +82,7 @@ async function bubbleSort(array) {
     for (let j = 0; j < array.length - i - 1; j++) {
       if (array[j] > array[j + 1]) {
         for (let k = 0; k < bars.length; k++) {
-          if (k !== j && k !== j + 1) {
+          if (k !== j && k !== j + 1 && k<array.length-i) {
             bars[k].style.backgroundColor = "aqua";
           }
         }
@@ -94,11 +94,14 @@ async function bubbleSort(array) {
         //bars[j].innerText = array[j];
         bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
         bars[j + 1].style.backgroundColor = "lightgreen";
+        
         //bars[j + 1].innerText = array[j + 1];
         await sleep(delay);
       }
     }
+    
     await sleep(delay);
+    bars[array.length-i-1].style.backgroundColor = "green";
   }
   return array;
 }

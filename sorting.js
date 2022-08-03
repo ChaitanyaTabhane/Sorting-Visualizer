@@ -106,6 +106,39 @@ async function bubbleSort(array) {
   return array;
 }
 
+//write insertion sort function
+async function InsertionSort(array) {
+  let bars = document.getElementsByClassName("bar");
+  for (let i = 1; i < array.length; i++) {
+    let key = array[i];
+    let j = i - 1;
+    while (j >= 0 && array[j] > key) {
+      array[j + 1] = array[j];
+      bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
+      bars[j + 1].style.backgroundColor = "red";
+      //bars[j + 1].innerText = array[j + 1];
+      await sleep(delay);
+
+      for (let k = 0; k < bars.length; k++) {
+        if (k != j + 1) {
+          bars[k].style.backgroundColor = "aqua";
+        }
+      }
+      j = j - 1;
+    }
+    array[j + 1] = key;
+    bars[j + 1].style.height = array[j + 1] * heightFactor + "px";
+    bars[j + 1].style.backgroundColor = "lightgreen";
+    //bars[j + 1].innerText = array[j + 1];
+    await sleep(delay);
+  }
+
+  for (let k = 0; k < bars.length; k++) {
+    bars[k].style.backgroundColor = "aqua";
+  }
+  return array;
+}
+
 async function swap(items, leftIndex, rightIndex, bars) {
   var temp = items[leftIndex];
   items[leftIndex] = items[rightIndex];
@@ -179,6 +212,9 @@ sort_btn.addEventListener("click", function () {
       console.log(unsorted_array.length);
 
       quickSort(unsorted_array, 0, unsorted_array.length - 1);
+      break;
+    case "insertion":
+      InsertionSort(unsorted_array);
       break;
     default:
       bubbleSort(unsorted_array);

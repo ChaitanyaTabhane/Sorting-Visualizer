@@ -5,6 +5,7 @@ This is sorting visualizer website. It helps in understanding the sorting algori
 ## Algorithms Added
 - Bubble Sort
 - Quick Sort
+- Insertion sort
 
 (Will be adding more algorithms in future)
 
